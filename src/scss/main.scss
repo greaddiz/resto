@@ -1,0 +1,645 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+// подключения компонентов страницы
+@import "./components/header";
+
+// тестовые стили, удалите их
+
+* {
+	font-family: 'Halvar Eng Lt';
+	padding: 0;
+	margin: 0;
+	color: #303030;
+	outline: none;
+}
+
+ul {
+	display: block;
+	padding: 0;
+	margin: 0;
+
+	li {
+		display: block;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+button {
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.header {
+	padding-top: 24px;
+}
+
+.page__body {
+  height: var(--vh);
+}
+
+.header__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px;
+	background-color: #FFE68D;
+	border-radius: 8px;
+}
+
+.header__top_phone {
+	font-size: 16px;
+	font-weight: 500;
+	font-family: 'Halvar Breit Md';
+
+	span {
+	font-family: 'Halvar Breit Md';
+	color: #B89E44;
+	}
+}
+
+.header__top_actions {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.header__bottom {
+	padding: 24px 0;
+	border-bottom: 1px solid #303030;
+}
+
+.header__bottom_menu {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 42px;
+
+	li a {
+		font-size: 16px;
+		font-weight: 300;
+	}
+}
+
+.breadcrumbs {
+	padding: 16px 0 32px;
+}
+
+.breadcrumbs__block {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 14px;
+}
+
+.cart__title {
+	font-size: 30px;
+	font-family: 'Halvar Breit Md';
+	margin-bottom: 32px;
+}
+
+.cart__block_top {
+	display: flex;
+	align-items: center;
+	font-size: 19px;
+	gap: 36px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #000;
+
+	p {
+		width: 114px;
+	}
+
+	p:nth-child(2) {
+		width: 490px;
+	}
+
+	p:nth-child(4) {
+		width: 188px;
+	}
+
+	p:last-child {
+		text-align: right;
+	}
+}
+
+.cart__item {
+	padding: 16px 0;
+	display: flex;
+	align-items: center;
+	gap: 36px;
+	border-bottom: 1px solid #000;
+}
+
+.cart__item_image {
+	width: 114px;
+	height: 114px;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.cart__item_status {
+	padding: 5px 8px;
+	border-radius: 5px;
+	background-color: #F5F5F5;
+	width: max-content;
+	font-size: 14px;
+	font-weight: 400;
+	font-family: 'Halvar Eng Rg';
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin-bottom: 8px;
+
+	span {
+		width: 14px;
+		height: 14px;
+		background-color: #303030;
+		color: #F5F5F5;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 12px;
+		cursor: pointer;
+		line-height: 14px;
+		border-radius: 100%;
+		position: relative;
+
+		span {
+			position: absolute;
+			opacity: 0;
+			visibility: hidden;
+			display: block;
+			text-align: center;
+			top: calc(100% + 7px);
+			padding: 8px 12px;
+			border-radius: 12px;
+			background-color: #2E2F33;
+			height: max-content;
+			font-size: 16px;
+			line-height: initial;
+			width: 220px;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: all 0.2s ease;
+
+
+			&::before {
+				position: absolute;
+				content: url('data:image/svg+xml,<svg width="24" height="8" viewBox="0 0 24 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L11.5777 0.844584C11.3258 1.34844 11.1998 1.60037 11.0728 1.82886C9.04687 5.47468 5.27311 7.80699 1.10615 7.98862C0.844995 8 0.56333 8 0 8L24 8C23.4367 8 23.155 8 22.8938 7.98862C18.7269 7.80699 14.9531 5.47468 12.9272 1.82886C12.8002 1.60038 12.6742 1.34846 12.4223 0.844643L12.4223 0.844584L12 0Z" fill="%232E2F33"/></svg>');
+				display: block;
+				left: 50%;
+				transform: translateX(-50%);
+				top: -14px;
+			}
+		}
+
+		&:hover span {
+			visibility: visible;
+			opacity: 1;
+			transition: all 0.2s ease;
+		}
+	}
+
+	&.stock {
+		background-color: #E2E89F;
+		color: #303030;
+	}
+}
+
+.cart__item_name {
+	font-weight: 300;
+	font-size: 19px;
+	margin-bottom: 8px;
+}
+
+.cart__item_art {
+	font-size: 19px;
+	color: #898989;
+}
+
+.cart__item_price {
+	font-size: 19px;
+	width: 114px;
+}
+
+.cart__item_info {
+	display: flex;
+	align-items: center;
+	gap: 36px;
+	width: 100%;
+	flex: 1;
+	overflow: hidden;
+}
+
+.cart__item_count {
+	width: 188px;
+}
+
+.cart__item_count_block {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.cart__item_count_quatity {
+	display: flex;
+	align-items: center;
+	background-color: #F5F5F5;
+	border-radius: 8px;
+
+	button {
+		width: 32px;
+		height: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	input {
+		border: none;
+		background-color: transparent;
+		width: 36px;
+		text-align: center;
+		font-size: 15px;
+		font-family: 'Halvar Eng Rg';
+		font-weight: 400;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		/* display: none; <- Crashes Chrome on hover */
+		-webkit-appearance: none;
+		margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+	}
+}
+
+.cart__item_count_text {
+	font-size: 15px;
+	font-family: 'Halvar Eng Rg';
+	font-weight: 400;
+	margin-top: 10px;
+}
+
+.cart__item_itog {
+	font-size: 16px;
+	font-family: 'Halvar Breit Md';
+	text-align: right;
+	margin-left: auto;
+}
+
+.cart__item_main {
+	width: 490px;
+}
+
+.cart__result {
+	max-width: 339px;
+	width: 100%;
+	margin-left: auto;
+	margin-top: 16px;
+}
+
+.cart__result_list {
+	li {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 16px;
+
+		p {
+			font-size: 19px;
+		}
+
+		span {
+			font-size: 16px;
+			font-family: 'Halvar Breit Md';
+		}
+	}
+}
+
+.cart__result_btn {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	border: 1px solid #303030;
+	border-radius: 8px;
+	width: 100%;
+	font-size: 16px;
+	gap: 8px;
+
+	&:not(:last-child) {
+		margin-bottom: 8px;
+	}
+}
+
+.delivery {
+	padding-top: 64px;
+}
+
+.delivery__buyer {
+	max-width: 364px;
+	width: 100%;
+}
+
+.delivery__title {
+	font-size: 24px;
+	font-family: 'Halvar Breit Md';
+	font-weight: 500;
+	margin-bottom: 24px;
+}
+
+.delivery__label {
+	font-size: 16px;
+
+	&:not(:last-child) {
+		margin-bottom: 8px;
+	}
+}
+
+.delivery__inputblock {
+
+	&:not(:last-child) {
+		margin-bottom: 8px;
+	}
+
+	input {
+		width: 100%;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		padding: 0 16px;
+		background-color: #F5F5F5;
+		border-radius: 8px;
+		border: none;
+	}
+}
+
+.delivery__inputfile {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+
+	span {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		outline: none;
+		text-decoration: none;
+		font-size: 15px;
+		font-family: 'Halvar Eng Rg';
+		width: 100%;
+		background-color: #303030;
+		height: 40px;
+		color: #fff;
+		text-transform: uppercase;
+		border-radius: 8px;
+		
+		transition: background-color 0.2s;
+	}
+
+	input[type=file] {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+		display: block;
+		width: 0;
+		height: 0;
+	}
+}
+
+.delivery__buyer_item {
+	&:not(:last-child) {
+		margin-bottom: 32px;
+	}
+}
+
+.delivery__block {
+	display: flex;
+	gap: 36px;
+}
+
+.delivery__info {
+	flex: 1;
+}
+
+.delivery__message {
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	background-color: #FCF1C5;
+	border-radius: 8px;
+	font-size: 16px;
+	color: #7D5623;
+	margin-bottom: 24px;
+}
+
+.delivery__checkitem {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 16px;
+	border-radius: 8px;
+	background-color: #F5F5F5;
+	border: 1px solid transparent;
+	min-height: 68px;
+
+	&:has(input:checked) {
+		background-color: #fff;
+		border: 1px solid #303030;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 8px;
+	}
+
+	.delivery__checkblock {		
+		input {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+
+		input+label {
+			font-size: 16px;
+			color: #303030;
+			position: relative;
+			display: block;
+			padding-left: 40px;
+			cursor: pointer;
+
+			&::before {
+				position: absolute;
+				content: '';
+				display: block;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 18px;
+				height: 18px;
+				border-radius: 4px;
+				border: 1px solid #303030;
+			}
+
+			span {
+				display: block;
+				font-size: 16px;
+				color: #898989;
+			}
+		}
+
+		input:checked+label {
+			&::before {
+				background-color: #303030;
+				box-shadow: inset 0 0 0 4px rgba(255,255,255,1);
+			}
+		}
+	}
+}
+
+.delivery__checkitem_price {
+	font-size: 16px;
+	margin-left: auto;
+	flex-shrink: 0;
+}
+
+.delivery__info_item:not(:last-child) {
+	margin-bottom: 40px;
+}
+
+.delivery__textinput {
+	width: 100%;
+	height: 132px;
+	padding: 16px;
+	border-radius: 8px;
+	background-color: #F5F5F5;
+	border: none;
+	resize: none;
+}
+
+.delivery__btn {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFE68D;
+	font-family: 'Halvar Eng Rg';
+	text-transform: uppercase;
+	border-radius: 8px;
+}
+
+.button__top {
+	padding: 96px 0;
+
+	button {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		font-size: 30px;
+		font-family: 'Halvar Breit Md';
+	}
+}
+
+.footer__block {
+	padding: 24px;
+	border-radius: 16px;
+	background-color: #FFE68D;
+	display: flex;
+	gap: 36px;
+}
+
+.footer__info_logo {
+	margin-bottom: 72px;
+	display: block;
+}
+
+.footer__info {
+	max-width: 343px;
+}
+
+.footer__info_text {
+	font-size: 16px;
+	
+	&:not(:last-child) {
+		margin-bottom: 32px;
+	}
+}
+
+.footer__about {
+	margin-left: auto;
+}
+
+.footer__title {
+	margin-bottom: 32px;
+	font-size: 16px;
+	font-family: 'Halvar Breit Md';
+	font-weight: 500;
+}
+
+.footer__about_list {
+	li:not(:last-child) {
+		margin-bottom: 12px;
+	}
+
+	a {
+		font-size: 16px;
+	}
+}
+
+.footer__contact, .footer__about {
+	max-width: 252px;
+}
+
+.footer__contact_item {
+	font-size: 16px;
+	display: block;
+
+	&:not(:last-child) {
+		margin-bottom: 12px;
+	}
+}
+
+.footer__contact_social {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	margin-top: 30px;
+}
+
+.footer {
+	padding-bottom: 24px;
+}
+
+.gamburger {
+	display: none;
+}
+
+.header__top_actions_phone {
+	display: none;
+}
+
+.footer__contact .footer__info_text {
+	display: none;
+}
+
+@import "media";
